@@ -1,0 +1,35 @@
+[33mcommit e2e8fc8fd01bf7b667ed0798355630d26a863b8f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: mbroughtonn <mbroughtonn@gmail.com>
+Date:   Thu Nov 14 15:16:46 2024 -0600
+
+    Added validations to Genre
+
+[33mcommit 5d5352da3ee458666c66a2131722922ec30a3e0e[m
+Author: mbroughtonn <mbroughtonn@gmail.com>
+Date:   Thu Nov 14 15:15:52 2024 -0600
+
+    Added validations to Game
+
+[33mcommit 736425449692cbc5ba35a7b00399086e9dc6123c[m
+Author: mbroughtonn <mbroughtonn@gmail.com>
+Date:   Thu Nov 14 15:08:38 2024 -0600
+
+    Added validations and games relationship to Publisher
+
+[33mcommit 187338ebfb0fea655a0ac1882d2c9115da3219b6[m
+Author: mbroughtonn <mbroughtonn@gmail.com>
+Date:   Thu Nov 14 15:04:21 2024 -0600
+
+    Added the Publisher, Game, and Genre models.
+
+[33mcommit 7a29e5e12d2a77b736383cc6378ba6d3e5e85fd1[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: mbroughtonn <mbroughtonn@gmail.com>
+Date:   Tue Nov 12 16:14:09 2024 -0600
+
+    Adding the CSV file for the video games stats.
+
+[33mcommit 75bd6de80a9475d36072fcbed4288d2901a4eebe[m
+Author: root <root@Laptop.localdomain>
+Date:   Tue Nov 12 15:43:21 2024 -0600
+
+    Initial commit for rails at video games!
