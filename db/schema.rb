@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_19_173316) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_19_192842) do
+  create_table "consoles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "consoles_games", id: false, force: :cascade do |t|
+    t.integer "game_id", null: false
+    t.integer "console_id", null: false
+    t.index ["console_id"], name: "index_consoles_games_on_console_id"
+    t.index ["game_id"], name: "index_consoles_games_on_game_id"
+  end
+
+  create_table "game_consoles", force: :cascade do |t|
+    t.integer "game_id", null: false
+    t.integer "console_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["console_id"], name: "index_game_consoles_on_console_id"
+    t.index ["game_id"], name: "index_game_consoles_on_game_id"
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.integer "release_year"
@@ -36,6 +58,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_19_173316) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "game_consoles", "consoles"
+  add_foreign_key "game_consoles", "games"
   add_foreign_key "games", "genres"
   add_foreign_key "games", "publishers"
 end
