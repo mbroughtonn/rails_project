@@ -1,6 +1,6 @@
 <h2 class="title is-3">Games</h2>
 
-<ol>
+<ol class="ml-5">
   <% @games.each do |game| %>
     <li>
       <%= link_to game.title, game %> for the <%= game.consoles.map { |console| link_to console.name, console }.to_sentence.html_safe %> published by <%= link_to game.publisher.name, game.publisher %>
