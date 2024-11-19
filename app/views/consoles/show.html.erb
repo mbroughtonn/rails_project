@@ -1,4 +1,8 @@
-<h2>Games on the <%= @console.name %></h2>
+<h2>
+    <strong>
+        Games on the <%= @console.name %>
+    </strong>
+</h2>
 <ul>
     <% @console.games.each do |game|%>
     <li> <%= link_to game.title, game %></li>
