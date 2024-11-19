@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "consoles/index"
+  get "consoles/show"
   resources :games, only: [ :index, :show ]
   resources :publishers, only: [ :index, :show ]
   resources :consoles, only: [ :index, :show ]
