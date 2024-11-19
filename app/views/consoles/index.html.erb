@@ -1,2 +1,7 @@
-<h1>Consoles#index</h1>
-<p>Find me in app/views/consoles/index.html.erb</p>
+<h2>Consoles </h2>
+
+<ol>
+    <% @consoles.each do |console| %>
+        <li><%= link_to console.name, console %></li>
+    <% end %>
+</ol>
