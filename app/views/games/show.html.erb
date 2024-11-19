@@ -1,2 +1,22 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<h2><%= @game.title %></h2>
+
+<p>
+  <strong>Release Year:</strong>
+  <%= @game.release_year %>
+</p>
+<p>
+  <strong>Publisher:</strong>
+  <%= link_to @game.publisher.name, @game.publisher %>
+</p>
+<p>
+  <strong>Genre:</strong>
+  <%= @game.genre.name %>
+</p>
+<p>
+  <strong>Rating:</strong>
+  <%= @game.rating %>
+</p>
+<p>
+  <strong>Console:</strong>
+  <%= @game.consoles.map { |console| link_to console.name, console }.to_sentence.html_safe %>
+</p>
