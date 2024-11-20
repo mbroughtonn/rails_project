@@ -4,6 +4,7 @@ Game.delete_all
 Genre.delete_all
 Publisher.delete_all
 Console.delete_all
+Page.delete_all
 
 filename = Rails.root.join("db/video_games.csv")
 puts "Loading data from this file: #{filename}"
@@ -47,7 +48,11 @@ games.each do |game|
   end
 end
 
-puts "There are #{Publisher.count} publishers"
-puts "There are #{Genre.count} genres"
-puts "There are #{Console.count} consoles"
-puts "There are #{Game.count} games"
+Page.create(title: "About Us", content: "This is our About page. All about rails at the video games!", permalink: "about_us")
+Page.create(title: "Contact Us", content: "Contact me at mbroughton@rrc.ca", permalink: "contact_us")
+
+puts "There are #{Publisher.count} publishers."
+puts "There are #{Genre.count} genres."
+puts "There are #{Console.count} console.s"
+puts "There are #{Game.count} games."
+puts "There are #{Page.count} pages."
