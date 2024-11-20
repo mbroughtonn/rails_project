@@ -1,3 +1,5 @@
+<% content_for(:title) { @publisher.name } %>
+
 <h2 class="title is-3">Games published by <%= @publisher.name %></h2>
 
 <p class="mb-5"><%= @publisher.name %> made <%= @publisher.games.count %> different games from  2004 - 2008.</p>
