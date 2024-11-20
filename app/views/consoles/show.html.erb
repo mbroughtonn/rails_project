@@ -1,7 +1,11 @@
 <h2 class="title is-3">Games on the <%= @console.name %></h2>
 
+<p class="mb-5">
+  There were <%= @console.games.count %> different games made for the <%= @console.name %> from 2004 - 2008.
+</p>
+
 <ul>
-    <% @console.games.each do |game|%>
-    <li> <%= link_to game.title, game %></li>
-    <% end %>
+  <% @console.games.each do |game| %>
+    <li><%= link_to game.title, game %></li>
+  <% end %>
 </ul>
