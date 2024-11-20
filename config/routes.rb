@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "home/index"
   get "consoles/index"
   get "consoles/show"
   resources :games, only: [ :index, :show ]
