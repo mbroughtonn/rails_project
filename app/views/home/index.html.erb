@@ -1,2 +1,20 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1 class="title is-1">Top Games from 2004 - 2008</h1>
+
+<div class="columns">
+    <div class="column">
+        <h3 class="title is-5">Top 10 Games</h3>
+        <ol class="ml-5">
+            <% @games.each do |game| %>
+                <li><%= link_to game.title, game %></li>
+            <% end %>
+        </ol>
+    </div>
+    <div class="column">
+        <h3 class="title is-5">Top 10 Publishers</h3>
+        <ol class="ml-5">
+            <% @publishers.each do |publisher| %>
+                <li><%= link_to publisher.name, publisher %></li>
+            <% end %>
+        </ol>
+    </div>
+</div>
