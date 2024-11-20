@@ -1,13 +1,16 @@
 <% content_for(:title) { "Publishers" } %>
 
 <p class="mb-5">
-    These are publishers that published games from 2004 - 2008. The list is in order from most game published, to least.
+    These are publishers ordered from most games published to least.
 </p>
 
-<h2 class="title is-3">Publishers </h2>
+<h2 class="title is-3">Publishers</h2>
 
 <ol class="ml-5">
     <% @publishers.each do |publisher| %>
-        <li><%= link_to publisher.name, publisher %></li>
+        <li>
+            <%= link_to publisher.name, publisher %> 
+            (<%= publisher.games_count %> games)
+        </li>
     <% end %>
 </ol>
