@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Top Games from 2004 - 2008" %></title>
+    <title><%= content_for(:title) || "Video Game Freak" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -10,25 +10,63 @@
 
     <%= yield :head %>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
   </head>
+  <body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="<%= root_path %>">
+          Video Game Freak
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
 
-  <section class="section">
-    <div class="container">
-        <body>
-          <h1 class="title is-2"><%= link_to "Top Games", root_path %></h1>
-          <%= yield %>
-        </body>
-        <%= render partial: "common/footer" %>
-    </div>
-  </section>
+      <div id="navbarBasic" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="<%= games_path %>">
+            Games
+          </a>
+          <a class="navbar-item" href="<%= publishers_path %>">
+            Publishers
+          </a>
+          <a class="navbar-item" href="<%= consoles_path %>">
+            Consoles
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <form class="field has-addons" action="/search" method="get">
+              <div class="control">
+                <input class="input" type="text" name="q" placeholder="Search">
+              </div>
+              <div class="control">
+                <button class="button is-primary" type="submit">
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <h1 class="title is-2"><%= link_to "Top Games", root_path %></h1>
+        <%= yield %>
+      </div>
+    </section>
+
+    <%= render partial: "common/footer" %>
+  </body>
 </html>

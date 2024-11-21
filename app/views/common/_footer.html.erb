@@ -1,8 +1,12 @@
 <footer>
+  <div class="content has-text-centered">
     <ul>
-        <%= link_to "Home", root_path %>
-        <%= link_to "Top Games", games_path %>
-        <%= link_to "Top Publishers", publishers_path %>
-        <p>&copy; 2024 Top Games. All rights reserved.</p>
+      <%= [
+        link_to("Home", root_path),
+        link_to("Top Games", games_path),
+        link_to("Top Publishers", publishers_path)
+      ].join(" | ").html_safe %>
     </ul>
+    <p>&copy; 2024 Top Games. All rights reserved.</p>
+  </div>
 </footer>
