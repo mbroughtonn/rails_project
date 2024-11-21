@@ -45,9 +45,10 @@
 
         <div class="navbar-end">
           <div class="navbar-item">
-            <form class="field has-addons" action="/search" method="get">
+            <!-- Search Form -->
+            <form class="field has-addons" action="<%= search_path %>" method="get">
               <div class="control">
-                <input class="input" type="text" name="q" placeholder="Search">
+                <input class="input" type="text" name="q" placeholder="Search" value="<%= params[:q] %>">
               </div>
               <div class="control">
                 <button class="button is-primary" type="submit">
@@ -62,7 +63,7 @@
 
     <section class="section">
       <div class="container">
-        <%= yield %>
+        <%= yield %> <!-- This is where the page content is rendered -->
       </div>
     </section>
 

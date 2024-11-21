@@ -1,0 +1,43 @@
+<h2 class="title is-3">Search Results for "<%= @query %>"</h2>
+
+<% if @games.any? %>
+  <h2 class="title is-4">Games</h2>
+  <ul>
+    <% @games.each do |game| %>
+      <li>
+        <%= link_to game.title, game_path(game) %> 
+        (Released: <%= game.release_year %>)
+      </li>
+    <% end %>
+  </ul>
+  <!-- Add margin-top to create spacing after the Games list -->
+  <div class="mt-5"></div> 
+<% end %>
+
+<% if @publishers.any? %>
+  <h2 class="title is-4">Publishers</h2>
+  <ul>
+    <% @publishers.each do |publisher| %>
+      <li>
+        <%= link_to publisher.name, publisher_path(publisher) %>
+      </li>
+    <% end %>
+  </ul>
+  <!-- Add margin-top to create spacing after the Publishers list -->
+  <div class="mt-5"></div> 
+<% end %>
+
+<% if @consoles.any? %>
+  <h2 class="title is-4">Consoles</h2>
+  <ul>
+    <% @consoles.each do |console| %>
+      <li>
+        <%= link_to console.name, console_path(console) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @games.empty? && @publishers.empty? && @consoles.empty? %>
+  <p>No results found.</p>
+<% end %>
