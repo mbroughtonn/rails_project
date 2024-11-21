@@ -53,6 +53,6 @@ Page.create(title: "Contact Us", content: "Contact me at mbroughton@rrc.ca", per
 
 puts "There are #{Publisher.count} publishers."
 puts "There are #{Genre.count} genres."
-puts "There are #{Console.count} console.s"
+puts "There are #{Console.count} consoles."
 puts "There are #{Game.count} games."
 puts "There are #{Page.count} pages."
