@@ -45,7 +45,6 @@
 
         <div class="navbar-end">
           <div class="navbar-item">
-            <!-- Search Form -->
             <form class="field has-addons" action="<%= search_path %>" method="get">
               <div class="control">
                 <input class="input" type="text" name="q" placeholder="Search" value="<%= params[:q] %>">
@@ -63,22 +62,20 @@
 
     <section class="section">
       <div class="container">
-        <%= yield %> <!-- This is where the page content is rendered -->
+        <%= yield %>
       </div>
     </section>
 
     <%= render partial: "common/footer" %>
 
-    <!-- Script for the hamburger menu -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const burgers = document.querySelectorAll('.navbar-burger');
-        burgers.forEach(burger => {
-          burger.addEventListener('click', () => {
-            const target = document.getElementById(burger.dataset.target);
-            burger.classList.toggle('is-active');
-            target.classList.toggle('is-active');
-          });
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.querySelector('.navbar-menu');
+
+        burger.addEventListener('click', () => {
+          burger.classList.toggle('is-active');
+          menu.classList.toggle('is-active');
         });
       });
     </script>
