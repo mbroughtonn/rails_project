@@ -6,7 +6,7 @@
   These are the top games published from 2004 - 2008. List is in no specific order.
 </p>
 
-<ol class="ml-5">
+<ol class="ml-5" start="<%= (@games.current_page - 1) * @games.limit_value + 1 %>">
   <% @games.each do |game| %>
     <li>
       <%= link_to game.title, game %> for the <%= game.consoles.map { |console| link_to console.name, console }.to_sentence.html_safe %> published by <%= link_to game.publisher.name, game.publisher %>
