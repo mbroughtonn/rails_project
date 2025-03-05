@@ -6,8 +6,10 @@
   There were games published for 5 different consoles from 2004 - 2008. List is in no specific order.
 </p>
 
-<ol class="ml-5">
+<ol class="ml-5" start="<%= (@consoles.current_page - 1) * @consoles.limit_value + 1 %>">
     <% @consoles.each do |console| %>
         <li><%= link_to console.name, console %></li>
     <% end %>
 </ol>
+
+<%= paginate @consoles %>

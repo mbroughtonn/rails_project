@@ -5,10 +5,13 @@
 <p class="mb-5">
   There were <%= @console.games.count %> different games made for the <%= @console.name %> from 2004 - 2008.
 </p>
+
 <div class="content">
-    <ul>
-    <% @console.games.each do |game| %>
-        <li><%= link_to game.title, game %></li>
-    <% end %>
-    </ul>
+    <ol start="<%= (@games.current_page - 1) * @games.limit_value + 1 %>">
+        <% @games.each do |game| %>
+            <li><%= link_to game.title, game %></li>
+        <% end %>
+    </ol>
 </div>
+
+<%= paginate @games %>
