@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: %i[ edit update destroy ]
+  before_action :set_page, only: %i[edit update destroy]
   http_basic_authenticate_with name: "admin", password: "notsecure", except: [:permalink]
 
   # GET /pages or /pages.json
@@ -9,6 +9,11 @@ class PagesController < ApplicationController
 
   def permalink
     @page = Page.find_by(permalink: params[:permalink])
+
+    unless @page
+      flash[:alert] = "Page not found."
+      redirect_to pages_path
+    end
   end
 
   # GET /pages/new
@@ -39,7 +44,7 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to @page, notice: "Page was successfully updated." }
+        format.html { redirect_to page_permalink_path(@page.permalink), notice: "Page was successfully updated." }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -59,13 +64,19 @@ class PagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_page
-      @page = Page.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def page_params
-      params.expect(page: [ :title, :content, :permalink ])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_page
+    @page = Page.find_by(id: params[:id])
+    
+    unless @page
+      flash[:alert] = "Page not found."
+      redirect_to pages_path
     end
+  end
+
+  # Only allow a list of trusted parameters through.
+  def page_params
+    params.require(:page).permit(:title, :content, :permalink)
+  end
 end
