@@ -3,12 +3,16 @@
 <h2 class="title is-3"><%= @game.title %></h2>
 
 <p>
-  <strong>Release Year:</strong>
-  <%= @game.release_year %>
-</p>
-<p>
   <strong>Publisher:</strong>
   <%= link_to @game.publisher.name, @game.publisher %>
+</p>
+<p>
+  <strong>Console:</strong>
+  <%= @game.consoles.map { |console| link_to console.name, console }.to_sentence.html_safe %>
+</p>
+<p>
+  <strong>Release Year:</strong>
+  <%= @game.release_year %>
 </p>
 <p>
   <strong>Genre:</strong>
@@ -19,6 +23,6 @@
   <%= @game.rating %>
 </p>
 <p>
-  <strong>Console:</strong>
-  <%= @game.consoles.map { |console| link_to console.name, console }.to_sentence.html_safe %>
+  <strong>Description:</strong>
+  <%= @game.description %>
 </p>

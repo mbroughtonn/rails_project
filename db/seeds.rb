@@ -1,4 +1,5 @@
 require "csv"
+require "faker"
 
 Game.delete_all
 Genre.delete_all
@@ -31,7 +32,8 @@ games.each do |game|
       title: game["Title"],
       release_year: game["Release.Year"],
       rating: game["Release.Rating"],
-      publisher: publisher
+      publisher: publisher,
+      description: Faker::Lorem.paragraph(sentence_count: 5) # Generates a random description
     )
 
     new_game.genre = genres.first

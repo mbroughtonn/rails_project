@@ -9,4 +9,5 @@ class Game < ApplicationRecord
   validates :publisher, presence: true
   validates :genre, presence: true
   validates :consoles, presence: { message: "at least one console is required" }
+  validates :description, presence: true
 end
