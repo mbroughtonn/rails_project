@@ -14,4 +14,10 @@
     <%= page.permalink %>
   </p>
 
+  <% if page.permalink == "about_us" %>
+    <p>
+      <strong>Entity-Relationship Diagram:</strong>
+    </p>
+    <%= image_tag("erd.png", alt: "Entity-Relationship Diagram", class: "erd-image") %>
+  <% end %>
 </div>
