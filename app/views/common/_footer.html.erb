@@ -1,12 +1,10 @@
 <footer>
   <div class="content has-text-centered">
-    <ul>
-      <%= [link_to("Home", root_path), link_to("Top Games", games_path), link_to("Top Publishers", publishers_path)].join(" | ").html_safe %>
-      
-      <% if cms_pages.any? %>
-        <%= " | ".html_safe + cms_pages.map { |page| link_to(page.title, page_permalink_path(page.permalink)) }.join(" | ").html_safe %>
-      <% end %>
-    </ul>
-    <p>&copy; 2024 Video Game Freak. All rights reserved.</p>
+    <%= [link_to("Home", root_path), link_to("Top Games", games_path), link_to("Top Publishers", publishers_path)].join(" | ").html_safe %>
+
+    <% if cms_pages.any? %>
+      <%= " | ".html_safe + cms_pages.map { |page| link_to(page.title, page_permalink_path(page.permalink)) }.join(" | ").html_safe %>
+    <% end %>
+    <p>&copy; 2025 Video Game Freak. All rights reserved.</p>
   </div>
 </footer>
